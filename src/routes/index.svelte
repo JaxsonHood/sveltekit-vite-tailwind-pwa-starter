@@ -33,7 +33,4 @@
     <div class="p-5 font-semibold text-gray-400 font-mono animate-pulse">Coming Soon!</div>
     <!-- <div class="font-bold text-5xl">Hello From SvelteKit + Tailwind + Vercel + Supabase</div> -->
     <div class="p-5 font-thin text-xs text-gray-900">{ message }</div>
-    <div class="mx-auto">
-        <ion-icon class="text-rose-500 text-5xl" name="heart"></ion-icon>
-    </div>
 </main>
