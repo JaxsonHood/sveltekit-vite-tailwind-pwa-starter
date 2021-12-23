@@ -27,10 +27,13 @@
 
 <main class="bg-black text-gray-200 text-3xl w-full h-screen grid content-center justify-center text-center">
     <div class="-mt-10 mx-auto">
-        <img class="w-72" src="/logo.png" alt="heart rings" />
+        <img class="w-64" src="/logo.png" alt="heart rings" />
     </div>
     <div class="font-bold text-8xl text-gray-100">u-<span class="text-gray-400">n-</span><span class=" text-gray-300">me</span></div>
     <div class="p-5 font-semibold text-gray-400 font-mono animate-pulse">Coming Soon!</div>
     <!-- <div class="font-bold text-5xl">Hello From SvelteKit + Tailwind + Vercel + Supabase</div> -->
     <div class="p-5 font-thin text-xs text-gray-900">{ message }</div>
+    <div class="mx-auto">
+        <ion-icon class="text-rose-500 text-5xl" name="heart"></ion-icon>
+    </div>
 </main>
