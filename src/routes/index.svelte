@@ -30,7 +30,7 @@
         <img class="w-72" src="/logo.png" alt="heart rings" />
     </div>
     <div class="font-bold text-8xl text-gray-100">u-<span class="text-gray-400">n-</span><span class=" text-gray-300">me</span></div>
-    <div class="p-5 font-semibold text-gray-600 font-mono">Coming Soon!</div>
+    <div class="p-5 font-semibold text-gray-400 font-mono animate-pulse">Coming Soon!</div>
     <!-- <div class="font-bold text-5xl">Hello From SvelteKit + Tailwind + Vercel + Supabase</div> -->
     <div class="p-5 font-thin text-xs text-gray-900">{ message }</div>
 </main>
