@@ -1,28 +1,12 @@
 <script context="module">
-    import { createClient } from "@supabase/supabase-js";
-    import { supabaseUrl, supabaseAnonKey } from '$lib/vars';
+    import { Supabase } from '$lib/supabase'
 
-    let sbUrl; let sbAnonKey;
-
-    if (process.env.NODE_ENV === 'production') {
-        // For production
-        sbUrl = process.env.PUBLIC_SUPABASE_URL;
-        sbAnonKey = process.env.PUBLIC_SUPABASE_ANON_KEY;
-    } else {
-        // For development
-        sbUrl = supabaseUrl;
-        sbAnonKey = supabaseAnonKey;
-    }
+    const db = new Supabase()
 
     // Load data from api endpoint on server
 	export const load = async ({ fetch }) => {
-        const supabase = createClient(sbUrl, sbAnonKey);
-		const { data, error } = await supabase.from("posts").select("*");
-
-        // Check if errors
-        if (error != null) return { error: new Error(error) }
-
-        const message = data[0].content
+        const posts = await db.getPosts()
+        const message = posts[0].content
         return {
             props: { message }
         }

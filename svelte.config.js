@@ -2,6 +2,8 @@ import preprocess from 'svelte-preprocess';
 // import adapter from '@sveltejs/adapter-auto';
 import vercel from '@sveltejs/adapter-vercel';
 
+// const dev = process.env.NODE_ENV === 'development'
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
@@ -14,6 +16,9 @@ const config = {
             define: {
                 'process.env': process.env,
             },
+			// ssr: {
+            //     noExternal: dev ? [] : ['@supabase/supabase-js']
+            // },
         },
 	},
 
