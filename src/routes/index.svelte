@@ -1,36 +1,44 @@
 <script context="module">
-    // Load data from api endpoint
+    import { createClient } from "@supabase/supabase-js";
+    import { supabaseUrl, supabaseAnonKey } from '$lib/vars';
+
+    let sbUrl; let sbAnonKey;
+
+    if (process.env.NODE_ENV === 'production') {
+        // For production
+        sbUrl = process.env.PUBLIC_SUPABASE_URL;
+        sbAnonKey = process.env.PUBLIC_SUPABASE_ANON_KEY;
+    } else {
+        // For development
+        sbUrl = supabaseUrl;
+        sbAnonKey = supabaseAnonKey;
+    }
+
+    // Load data from api endpoint on server
 	export const load = async ({ fetch }) => {
-		const res = await fetch('/api/bot');
+        const supabase = createClient(sbUrl, sbAnonKey);
+		const { data, error } = await supabase.from("posts").select("*");
 
-		if (res.ok) {
-			const response = await res.json();
-            const message = response.message;
+        // Check if errors
+        if (error != null) return { error: new Error(error) }
 
-            console.info("Recieved Message from Endpoint...")
-
-			return {
-				props: { message }
-			};
-		}
-
-		const { message } = await res.json();
-
-		return {
-			error: new Error(message)
-		};
+        const message = data[0].content
+        return {
+            props: { message }
+        }
 	};
 </script>
 
 <script>
+    // Declare variable on client
     export let message;
 </script>
 
 <svelte:head>
-	<title>SvelteKit + Tailwind</title>
+	<title>SvelteKit + Tailwind + Vercel + Supabase</title>
 </svelte:head>
 
 <main class="bg-black text-gray-200 text-xl w-full h-screen grid content-center justify-center text-center">
-    <div class="font-bold text-3xl">Hello From SvelteKit + Tailwind</div>
-    <div class="p-3 font-mono">{ message }</div>
+    <div class="font-bold text-5xl">Hello From SvelteKit + Tailwind + Vercel + Supabase</div>
+    <div class="p-5 font-bold text-gray-400 font-mono">{ message }</div>
 </main>
