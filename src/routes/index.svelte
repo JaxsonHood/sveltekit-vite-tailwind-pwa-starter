@@ -5,8 +5,10 @@
 
     // Load data from api endpoint on server
 	export const load = async ({ fetch }) => {
+        
         const posts = await db.getPosts()
         const message = posts[0].content
+
         return {
             props: { message }
         }
@@ -20,6 +22,7 @@
 
 <svelte:head>
 	<title>SvelteKit + Tailwind + Vercel + Supabase</title>
+    <meta name="description" content="SvelteKit setup project with Tailwind + Supabase hosted on Vercel...">
 </svelte:head>
 
 <main class="bg-black text-gray-200 text-xl w-full h-screen grid content-center justify-center text-center">
