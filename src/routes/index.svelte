@@ -49,13 +49,6 @@
 
 <main class="{theme_value === 'dark' ? 
 'bg-black text-gray-200 text-3xl w-full h-screen grid content-center justify-center text-center transition-all' : 'bg-white text-gray-900 text-3xl w-full h-screen grid content-center justify-center text-center transition-all'}">
-    <div class="-mt-10 mx-auto">
-        {#if theme_value === 'dark'}
-            <img class="w-64" src="/logo.png" alt="heart rings" />
-        {:else}
-            <img class="w-64" src="/logo-black.png" alt="heart rings" />
-        {/if}
-    </div>
     <div class="font-bold text-8xl text-gray-200">u-<span class="text-gray-400">n-</span><span class=" text-gray-300">me</span></div>
     <div class="p-5 font-semibold text-gray-400 font-mono animate-pulse">Coming Soon!</div>
     <!-- <div class="font-bold text-5xl">Hello From SvelteKit + Tailwind + Vercel + Supabase</div> -->
