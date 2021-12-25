@@ -16,26 +16,41 @@
 </script>
 
 <script>
+    import theme from '$lib/stores/theme';
+
     // Declare variable on client
     export let message;
-    let theme = 'dark'
+
+    let headerColour = '#ffffff'
+    let theme_value;
+
+    theme.subscribe(value => {
+		theme_value = value;
+	});
 
     const toggleTheme = () => {
-        if (theme == 'light'){
-            theme = 'dark'
-        } else theme = 'light'
+        if ($theme == 'light'){
+            theme.set('dark')
+            headerColour = '#000000'
+        } else {
+            theme.set('light')
+
+        }
+
+
     }
 </script>
 
 <svelte:head>
 	<title>u-n-me</title>
     <meta name="description" content="A new way to find people that are interesting!">
+    <meta name="theme-color" content={headerColour}>
 </svelte:head>
 
-<main class="{theme === 'dark' ? 
+<main class="{theme_value === 'dark' ? 
 'bg-black text-gray-200 text-3xl w-full h-screen grid content-center justify-center text-center transition-all' : 'bg-white text-gray-900 text-3xl w-full h-screen grid content-center justify-center text-center transition-all'}">
     <div class="-mt-10 mx-auto">
-        {#if theme === 'dark'}
+        {#if theme_value === 'dark'}
             <img class="w-64" src="/logo.png" alt="heart rings" />
         {:else}
             <img class="w-64" src="/logo-black.png" alt="heart rings" />
@@ -49,7 +64,7 @@
     <!-- dark mode toggle -->
     <div class="mx-auto mt-10">
         <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in" on:click={toggleTheme}>
-            <input type="checkbox" name="toggle" id="toggle" class="{theme === 'dark' ? 'absolute block w-6 h-6 rounded-full bg-gray-700 border-4 appearance-none cursor-pointer right-0' : 'absolute block w-6 h-6 rounded-full bg-gray-700 border-4 appearance-none cursor-pointer'}"/>
+            <input type="checkbox" name="toggle" id="toggle" class="{theme_value === 'dark' ? 'absolute block w-6 h-6 rounded-full bg-gray-700 border-4 appearance-none cursor-pointer right-0' : 'absolute block w-6 h-6 rounded-full bg-gray-700 border-4 appearance-none cursor-pointer'}"/>
             <label for="toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
         </div>
         <label for="toggle" class="text-sm mb-1 font-semibold text-gray-600">Dark Mode</label>
