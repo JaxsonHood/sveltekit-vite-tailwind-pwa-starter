@@ -2,8 +2,8 @@
 
     // Load data from api endpoint on server
 	export const load = async ({ fetch }) => {
-        const app_name = "fizzl"
-        const message = "A new age social media experience"
+        const app_name = "FIZZL"
+        const message = "A new age social media experience that lets you have full control of your data, and complete transparency in how the system works!"
 
         return {
             props: { message, app_name }
@@ -30,11 +30,10 @@
 </svelte:head>
 
 <main class="bg-black text-gray-300 text-3xl w-full h-screen grid content-center justify-center text-center transition-all">
-    <div class="mx-auto w-28 pb-10 -mt-10">
-        <img class="rounded-2xl" src="/soda_bottle.jpeg" alt="soda bottle logo" />
+    <div class="p-5 font-thin underline-offset-2 underline text-5xl text-gray-300 max-w-xl -mt-10 pb-14">hello from:</div>
+    <div class="mx-auto w-96">
+        <img class="rounded-2xl" src="/logo-text-white.png" alt="soda bottle logo" />
     </div>
-    <div class="font-bold text-8xl text-gray-200">{ app_name }</div>
-    <!-- <div class="font-bold text-5xl">Hello From SvelteKit + Tailwind + Vercel + Supabase</div> -->
-    <div class="p-5 font-mono text-sm text-gray-400">{ message }</div>
-    <div class="p-5 text-gray-300 font-mono animate-pulse pt-10">Coming Soon!</div>
+    <div class="p-5 font-mono text-sm text-gray-400 max-w-xl pb-6">{ message }</div>
+    <div class="m-5 p-5 text-gray-300 font-mono animate-pulse mt-10 border-4 rounded-xl transition-all cursor-pointer hover:scale-95">Coming Soon!</div>
 </main>
