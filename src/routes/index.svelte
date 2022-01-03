@@ -31,7 +31,7 @@
 
 <main class="bg-black text-gray-300 text-3xl w-full h-screen grid content-center justify-center text-center transition-all">
     <div class="p-5 font-thin underline-offset-2 underline text-5xl text-gray-300 max-w-xl -mt-10 pb-14">hello from:</div>
-    <div class="mx-auto w-96">
+    <div class="mx-auto w-full pl-3 pr-3 sm:w-96">
         <img class="rounded-2xl" src="/logo-text-white.png" alt="soda bottle logo" />
     </div>
     <div class="p-5 font-mono text-sm text-gray-400 max-w-xl pb-6">{ message }</div>
