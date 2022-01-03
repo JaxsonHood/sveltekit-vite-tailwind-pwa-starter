@@ -21,10 +21,16 @@ export class Supabase {
         const supabase = createClient(sbUrl, sbAnonKey);
         return supabase;
     }
+    getUser = async () => {
+        const user = this.supabase.auth.user()
+        console.info(user)
+    }
     getPosts = async () => {
         const { data, error } = await this.supabase.from("posts").select("*");
+
         // Check if errors
         if (error != null) return { error: new Error(error) };
+        
         return data;
     }
   }
