@@ -3,10 +3,9 @@
     // Load data from api endpoint on server
 	export const load = async ({ fetch }) => {
         const app_name = "FIZZL"
-        const message = "Let the important stuff bubble up. FIZZL automatically keeps you up to date about jobs you have accepted, with the latest documents and information!"
 
         return {
-            props: { message, app_name }
+            props: { app_name }
         }
 	};
 </script>
@@ -15,7 +14,8 @@
     import { onMount } from 'svelte';
 
     // Declare variable on client
-    export let message;
+    let message = "Let the important stuff bubble up. FIZZL automatically keeps you up to date about jobs you have accepted, with the latest documents and information!"
+    
     export let app_name;
 
 	onMount(async () => {
@@ -35,5 +35,5 @@
         <img class="rounded-2xl" src="/logo-text-white.png" alt="soda bottle logo" />
     </div>
     <div class="p-5 font-mono text-sm text-gray-400 max-w-xl pb-6">{ message }</div>
-    <div class="m-5 p-5 text-gray-300 font-mono animate-pulse mt-10 border-4 rounded-xl transition-all cursor-pointer hover:scale-95">Coming Soon!</div>
+    <div class="m-8 p-5 text-gray-300 font-mono animate-pulse mt-10 border-4 rounded-xl transition-all cursor-pointer hover:scale-95">Coming Soon!</div>
 </main>
