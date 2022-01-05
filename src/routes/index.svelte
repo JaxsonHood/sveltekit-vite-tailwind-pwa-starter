@@ -3,7 +3,7 @@
     // Load data from api endpoint on server
 	export const load = async ({ fetch }) => {
         const app_name = "FIZZL"
-        const message = "A new age social media experience that lets you have full control of your data, and complete transparency in how the system works!"
+        const message = "Let the important stuff bubble up. FIZZL automatically keeps you up to date about jobs you have accepted, with the latest documents and information!"
 
         return {
             props: { message, app_name }
