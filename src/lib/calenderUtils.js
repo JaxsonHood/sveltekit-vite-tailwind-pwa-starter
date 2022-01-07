@@ -4,17 +4,19 @@ class CalenderUtils {
     constructor() {
         var today = new Date();
 
-        this.name = "App Utils"
+        this.name = "Calender Utils"
         this.year = today.getFullYear()
         this.month = today.getMonth()
 
-        this.day = today.getDay()
+        this.day = today.getDate()
 
         this.currentYear = this.year
         this.currentMonth = this.month
 
         this.monthNames = ["January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"];
+
+        this.dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
       
     }
     getDaysInMonth = () => {
@@ -26,7 +28,28 @@ class CalenderUtils {
             date.setDate(date.getDate() + 1);
         }
 
-        return days;
+        const startDay = days[0].toString().substring(0, 3)
+        let daysToAdd = []
+
+        for (let i in this.dayNames){
+            let d = this.dayNames[i].substring(0, 3)
+            if (d == startDay){
+                break;
+            }
+            daysToAdd.push("New Day")
+        }
+
+        let dayNums = []
+
+        for (let i in daysToAdd){
+            dayNums.push(0)
+        }
+
+        for (let i in days){
+            dayNums.push(parseInt(i) + 1)
+        }
+
+        return dayNums
     }
 
     nextMonth = () => {

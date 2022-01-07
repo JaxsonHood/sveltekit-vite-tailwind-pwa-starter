@@ -35,5 +35,5 @@
         <img class="rounded-2xl" src="/logo-text-white.png" alt="soda bottle logo" />
     </div>
     <div class="p-5 font-mono text-sm text-gray-400 max-w-xl pb-6">{ message }</div>
-    <a href='/components' class="m-8 p-5 text-gray-300 font-mono animate-pulse mt-10 border-4 rounded-xl transition-all cursor-pointer hover:scale-95">Coming Soon!</a>
+    <a href='/components' class="m-8 p-5 text-gray-300 font-mono animate-pulse mt-10 border-4 rounded-xl transition-all cursor-pointer hover:scale-95 shadow-lg shadow-gray-400/40">Coming Soon!</a>
 </main>

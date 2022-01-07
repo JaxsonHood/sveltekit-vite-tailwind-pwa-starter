@@ -15,7 +15,7 @@
     <meta name="theme-color" content="#ffffff">
 </svelte:head>
 
-<main class="bg-black text-white text-4xl w-full h-screen grid justify-center text-center transition-all mb-10">
-    <a href="/" class="text-left mt-10 -mb-6 font-mono text-sm cursor-pointer hover:underline">Back to Landing</a>
+<main class="bg-black text-white text-4xl w-full h-full grid justify-center text-center transition-all mb-10 overflow-y-scroll">
+    <a href="/" class="text-left mt-10 mb-6 font-mono text-sm cursor-pointer hover:underline">Back to Landing</a>
     <Calender />
 </main>
