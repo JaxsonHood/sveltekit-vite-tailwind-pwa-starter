@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-7 h-min text-lg font-bold font-normal">
+        <div class="grid grid-cols-7 h-min text-lg font-normal">
             <div class="w-28 underline">Sun</div>
             <div class="w-28 underline">Mon</div>
             <div class="w-28 underline">Tues</div>
