@@ -12,6 +12,7 @@
 
 <script>
     import { onMount } from 'svelte';
+    import { fade, scale, fly, slide } from "svelte/transition";
 
     // Declare variable on client
     let message = "Let the important stuff bubble up. FIZZL automatically keeps you up to date about jobs you have accepted, with the latest documents and information!"
@@ -29,7 +30,7 @@
     <meta name="theme-color" content="#ffffff">
 </svelte:head>
 
-<main class="bg-black text-gray-300 text-3xl w-full h-screen grid content-center justify-center text-center transition-all">
+<main class="bg-black text-gray-300 text-3xl w-full h-screen grid content-center justify-center text-center transition-all" in:fade="{{ duration: 1500 }}" out:slide>
     <div class="p-5 font-thin underline-offset-2 underline text-5xl text-gray-300 max-w-xl -mt-10 pb-14">hello from:</div>
     <div class="mx-auto w-full pl-3 pr-3 sm:w-96">
         <img class="rounded-2xl" src="/logo-text-white.png" alt="soda bottle logo" />
