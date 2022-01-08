@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { fade, fly, scale } from 'svelte/transition';
+    import { fade, fly, scale, slide } from 'svelte/transition';
 
     import Fa from 'svelte-fa/src/fa.svelte'
     import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
@@ -16,7 +16,7 @@
     let isNow = dt.isNow()
 
 	onMount(async () => {
-		console.info("Mounted...")
+		console.info("Loaded... /components/Calender.svelte")
 
         currentMonthDays = dt.getDaysInMonth()
         monthName = dt.getMonthName()
@@ -48,9 +48,11 @@
 </script>
 
 <div class="p-6 border-2 border-opacity-20 rounded-2xl h-min mb-20 shadow-lg shadow-gray-700/40" 
-in:fly="{{ y: 150, duration: 1000 }}" out:fade="{{duration:500}}">
+in:fly="{{ y: 150, duration: 1000 }}" out:fade="{{duration:250}}">
     <div class="flex justify-between p-1 mb-6">
-        <div class="font-semibold">{monthName} <span class="pl-1 text-gray-500 text-opacity-50 font-normal">{currentYear}</span></div>
+        {#key monthName}
+            <div in:fly="{{duration:400}}" class="font-semibold">{monthName} <span class="pl-1 text-gray-500 text-opacity-50 font-normal">{currentYear}</span></div>
+        {/key}
         <div class="flex justify-end space-x-1">
             {#if !isNow}
                 <div on:click={backToNow} class="mr-2 font-bold text-base rounded-lg m-auto cursor-pointer px-3 py-1 border-2 border-gray-200 hover:bg-gray-200 hover:text-black hover:underline shadow-lg shadow-gray-500/50">Current Month</div>
@@ -74,24 +76,26 @@ in:fly="{{ y: 150, duration: 1000 }}" out:fade="{{duration:500}}">
 
         {#each currentMonthDays as dayNum}
             {#if dayNum == 0}
-                <div in:scale="{{delay:150}}" out:fade="{{ duration: 150 }}" class="w-24 h-24 border rounded border-opacity-25 border-gray-600 transition-all hover:scale-95 hover:bg-gray-900 hover:bg-opacity-20">
+                <div in:scale="{{ duration:100 }}" class="w-24 h-24 border rounded border-opacity-25 border-gray-600 transition-all hover:scale-95 hover:bg-gray-900 hover:bg-opacity-20">
                     <div class="ml-2 mt-1 text-center w-10 text-black bg-white rounded-full font-bold"></div>
                 </div>
             {:else if dayNum == dt.day && isNow}
-                <div in:scale="{{ delay:150 }}" out:fade="{{ duration: 150 }}" class="w-24 h-24 border-2 rounded border-opacity-80 border-gray-50 transition-all hover:scale-95 hover:bg-gray-900 hover:bg-opacity-20 shadow-lg shadow-gray-600/40">
+                <div in:scale="{{ duration:250, delay:150 }}" class="w-24 h-24 border-2 rounded border-opacity-80 border-gray-50 transition-all hover:scale-95 hover:bg-gray-900 hover:bg-opacity-20 shadow-lg shadow-gray-600/40">
                     <div class="ml-2 mt-1 text-center w-10 text-black bg-white rounded-full font-bold">{dayNum}</div>
                 </div>
             {:else}
-                <div in:scale="{{ delay:150 }}" out:fade="{{ duration: 150 }}" class="w-24 h-24 border rounded border-opacity-40 border-gray-400 transition-all hover:scale-95 hover:bg-gray-900 hover:bg-opacity-20">
+                <div in:scale="{{ duration:250, delay:150 }}" class="w-24 h-24 border rounded border-opacity-40 border-gray-400 transition-all hover:scale-95 hover:bg-gray-900 hover:bg-opacity-20">
                     <div class="ml-2 mt-1 text-left">{dayNum}</div>
                 </div>
             {/if}
         {/each}
 
-        {#if currentMonthDays.length < 29}
-            <div class="w-24 h-24">
-                <div class="ml-2 mt-1 text-left"> </div>
-            </div>
+        {#if currentMonthDays.length < 36}
+            {#each Array(Math.abs(currentMonthDays.length - 36)) as i}
+                <div class="w-24 h-24">
+                    <div class="ml-2 mt-1 text-left"> </div>
+                </div>
+            {/each}
         {/if}
     </div>
 </div>
