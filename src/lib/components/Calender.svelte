@@ -32,6 +32,7 @@
         console.log(currentMonthDays)
     }
 
+    // Functions that are exported are available in the HTML below
     export function nextMonth() {
         dt.nextMonth()
         refresh()
@@ -40,7 +41,6 @@
         dt.prevMonth()
         refresh()
     }
-
     export function backToNow() {
         dt.backToNow()
         refresh()

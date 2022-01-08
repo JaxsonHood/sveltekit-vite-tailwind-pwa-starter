@@ -1,21 +1,24 @@
+<!-- This script tag is loaded and ran on the server -->
 <script context="module">
-
     // Load data from api endpoint on server
 	export const load = async ({ fetch }) => {
-        const app_name = "FIZZL"
+        const app_name = "sveltekit-vite-tailwind-vercel-pwa"
 
+        //These props are accessible to the script tag on the client side by
+        // adding "export let app_name;" to the other script tag
         return {
             props: { app_name }
         }
 	};
 </script>
 
+<!-- This is ran on the client side -->
 <script>
     import { onMount } from 'svelte';
-    import { fade, scale, fly, slide } from "svelte/transition";
+    import { fade, fly, slide } from "svelte/transition";
 
     // Declare variable on client
-    let message = "Let the important stuff bubble up. FIZZL automatically keeps you up to date about jobs you have accepted, with the latest documents and information!"
+    let message = "This is a starter template for a SvelteKit-Vite-Tailwind-PWA app ready to be hosted on vercel! This template also includes FontAwesome icons"
     
     export let app_name;
 
@@ -26,15 +29,14 @@
 
 <svelte:head>
 	<title>{ app_name }</title>
-    <meta name="description" content="A new modern social media platform!">
+    <meta name="description" content="Mordern Template">
     <meta name="theme-color" content="#000000">
 </svelte:head>
 
 <main class="base-page !h-screen content-center" in:fade="{{ duration: 1250 }}" out:slide>
-    <div class="p-5 font-thin underline-offset-2 underline text-5xl text-gray-300 max-w-xl -mt-10 pb-14">hello from:</div>
-    <div class="mx-auto w-full pl-3 pr-3 sm:w-96">
-        <img class="rounded-2xl" src="/logo-text-white.png" alt="soda bottle logo" />
+    <div class="mx-auto w-full pl-3 pr-3 pb-3 sm:w-60">
+        <img class="rounded-3xl" src="/soda_bottle.jpeg" alt="soda bottle logo" />
     </div>
-    <div class="p-5 font-mono text-sm text-gray-400 max-w-xl pb-6">{ message }</div>
-    <a href='/components' class="m-8 large-button">Coming Soon!</a>
+    <div in:fly class="p-5 font-mono text-sm text-gray-400 max-w-xl pb-6">{ message }</div>
+    <a in:slide href='/test' class="m-8 large-button">CLICK ME!</a>
 </main>

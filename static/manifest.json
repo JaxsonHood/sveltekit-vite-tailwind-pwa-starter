@@ -1,11 +1,11 @@
 {
-    "short_name": "FIZZL",
-    "name": "FIZZL",
+    "short_name": "TEST",
+    "name": "TEST",
     "start_url": "/",
     "icons": [
       {
-        "src": "logo-white.png",
-        "type": "image/png",
+        "src": "soda_bottle.jpeg",
+        "type": "image/jpeg",
         "sizes": "512x512",
         "purpose": "any maskable"
       }
@@ -13,5 +13,5 @@
     "background_color": "#000000",
     "display": "standalone",
     "theme_color": "#000000",
-    "description": "A new age social media experience that is simple and transparent!"
+    "description": "Sveltekit template app"
 }
