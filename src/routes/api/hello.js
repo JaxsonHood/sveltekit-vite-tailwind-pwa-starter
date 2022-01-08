@@ -1,4 +1,4 @@
-// Test endpoint
+// Serverless function endpoint
 export const get = async () => {
     return {
         body: {

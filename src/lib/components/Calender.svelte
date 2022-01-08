@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import { fade, fly, scale, slide } from 'svelte/transition';
+    import { fade, fly, scale } from 'svelte/transition';
 
     import Fa from 'svelte-fa/src/fa.svelte'
     import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
@@ -55,7 +55,7 @@ in:fly="{{ y: 150, duration: 1000 }}" out:fade="{{duration:250}}">
         {/key}
         <div class="flex justify-end space-x-1">
             {#if !isNow}
-                <div transition:fade="{{ duration:100 }}" on:click={backToNow} class="mr-2 font-bold text-base rounded-lg m-auto cursor-pointer px-3 py-1 border-2 border-gray-200 hover:bg-gray-200 hover:text-black hover:underline shadow-lg shadow-gray-500/50">Current Month</div>
+                <div transition:fade="{{ duration:100 }}" on:click={backToNow} class="mr-2 action-button">Current Month</div>
             {/if}
             <div on:click={prevMonth} class="rounded rounded-l-xl border-2 border-opacity-50 hover:border-opacity-90 text-lg text-gray-400 hover:text-gray-200 shadow-lg shadow-gray-600/40">
                 <div class="py-2 px-3"><Fa icon={faArrowLeft} /></div>

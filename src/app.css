@@ -2,3 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Create custom tailwind css classes applying pre-made directives */
+@layer components {
+    .base-page {
+        @apply bg-black text-white text-4xl w-full h-full grid justify-center text-center transition-all mb-10 overflow-y-scroll
+    }
+    .action-button {
+        @apply font-bold text-base rounded-lg m-auto cursor-pointer px-3 py-1 border-2 border-gray-200 hover:bg-gray-200 hover:text-black hover:underline shadow-lg shadow-gray-500/50
+    }
+    .large-button {
+        @apply p-5 text-gray-300 font-mono animate-pulse mt-10 border-4 rounded-xl transition-all cursor-pointer hover:scale-95 shadow-lg shadow-gray-400/40
+    }
+}
